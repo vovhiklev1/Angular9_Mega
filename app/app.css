@@ -13,12 +13,21 @@ a {
     text-decoration: none;
 }
 
+html, body {
+    position: relative;
+    margin-top: 62px;
+}
+
 header {
     height: 62px;
+    background: #ffffff;
+
 }
 
 .b-logo__container {
     line-height: 62px;
+    position: relative;
+    z-index: 10000000000;
 / / padding : 20 px;
 }
 
@@ -194,10 +203,29 @@ header {
 
 }
 
+.fixed-left {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1000000;
+
+    height: 100%;
+}
+
+.b-aside-container {
+    margin-top: 62px;
+    height: 100%;
+}
+
+.b-aside__profile {
+    background: #13171E;
+    height: 100%;
+}
+
 .b-nav__profile {
     background: #080a0e;
     text-align: center;
-    line-height: 133px;
+    line-height: 143px;
 }
 
 .b-nav__img {
@@ -205,7 +233,7 @@ header {
     width: 70px;
     height: auto;
     border-radius: 50%;
-/ / border : 3 px solid #323843;
+    border: 3px solid #323843;
 }
 
 .b-nav__content {
@@ -213,7 +241,7 @@ header {
     height: 100%;
     padding-left: 6px;
     vertical-align: middle;
-
+    text-align: left;
 }
 
 .b-nav__items {
@@ -259,6 +287,7 @@ header {
 
 .b-button__item {
     display: inline-block;
+    margin-right: -2px;
     height: 29px;
     width: 29px;
     text-align: center;
@@ -274,7 +303,7 @@ header {
 
 .b-aside__menu {
 / / border : 1 px solid red;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     max-width: 300px;
 }
@@ -291,7 +320,9 @@ header {
     width: 100%;
     height: 40px;
     line-height: 40px;
-    text-align: center;
+    text-align: left;
+    font-size: 13px;
+    padding: 0 30px;
     text-decoration: none !important;
     background: #13171E;
     color: #8B91A0;
@@ -303,7 +334,6 @@ header {
 }
 
 .b-menu__item--nested {
-
     position: absolute;
     left: 100%;
     top: 0;
@@ -319,19 +349,31 @@ header {
     width: 150px;
 }
 
+.b-item__nested--link:visited {
+    color: #8B91A0;
+}
+
+.b-item__nested--link:visited:hover {
+    color: #ffffff;
+}
+
 .b-content {
     background: #E6E9EE;
 }
 
-.b-content__source--color {
+.b-main__source {
     background: #E6E9EE;
     display: block;
+/ / display : inline-block;
+}
 
+.b-mail-directive {
+    display: block;
+/ / width : 100 %;
 }
 
 .b-content__main {
     margin-left: 30px;
-
 }
 
 /*[class^= "col-"]:first-child {
@@ -342,6 +384,11 @@ header {
 .nopadding {
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.nopadding-left {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 .b-content__dir {
@@ -366,7 +413,7 @@ header {
     margin-left: 10px;
 }
 
-.b-content__header {
+.b-main__header {
     line-height: 100px;
 }
 
@@ -391,13 +438,19 @@ header {
     font-size: 12px;
 }
 
+.b-mail__nav {
+    background: #ffffff;
+    margin: 38px 0 0 0;
+}
+
 .b-mail__logo-container {
     text-align: center;
-    margin: 38px 0 0 0;
+
 }
 
 .b-mail__logo {
     display: inline-block;
+    margin: 38px 0 0 0;
     width: 106px;
     height: 106px;
     border-radius: 50%;
@@ -480,10 +533,15 @@ header {
     font-size: 20px;
     padding: 10px 30px;
     text-decoration: none !important;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
 }
 
 .b-mail__button:hover {
-    color: #555555;
+    color: #aeaeae;
     cursor: pointer;
 }
 
@@ -503,7 +561,7 @@ header {
     height: 40px;
     right: 0;
     top: 50%;
-    transform: translateY(-25%);
+    transform: translate(-50%, -25%);
 }
 
 .b-count__text {
@@ -528,19 +586,174 @@ header {
 
 .b-item__title-container {
     line-height: 40px;
+    background: #FAFAFA;
+}
+
+.b-item__title-container:hover {
+    background: #5A5A5A;
 }
 
 .b-title__text {
+    position: relative;
     display: inline-block;
     border-bottom: 1px solid #ededed;
     text-decoration: none !important;
+
     font-size: 14px;
     color: #555555;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
     width: 100%;
+    padding-left: 30px;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+
 }
 
-* {
+.b-title__text:hover {
+    transform: translate(10px, 0);
+    color: #ffffff;
+    border-bottom: 1px solid transparent;
+}
+
+.b-compose-container {
+    margin: 38px 0 0 0;
+}
+
+.b-compose__title, .b-inbox__title {
+    display: inline-block;
+    color: #333333;
+    font-size: 30px;
+    margin: 0 0 15px;
+}
+
+.b-compose__name, .b-compose__subject, .b-compose__bcc {
+    width: 100%;
+    margin: 13px 0;
+    height: 40px;
+    border: none;
+    padding: 0 20px;
+}
+
+.b-compose__name:focus, .b-compose__subject:focus, .b-compose__bcc:focus, .b-compose__textarea:focus {
+    border: none;
+    outline: 0;
+}
+
+.b-compose__textarea-container {
+    padding: 10px;
+    margin: 13px 0;
+    background: #fafafa;
+}
+
+.b-compose__textarea {
+    background: #ffffff;
+    border: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.b-compose__btn-container {
+    background: #fafafa;
+    padding: 10px 0;
+}
+
+.b-compose__btn {
+    font-size: 12px;
+    color: #ffffff;
+    padding: 6px 15px;
+    background: #715eff;
+    font-weight: bold;
+}
+
+.b-list-style {
+    padding: 0;
+    margin: 0;
+}
+
+.b-search__item {
+    list-style: none;
+/ / display : inline-block;
+    float: left;
+    color: #757575;
+    font-size: 14px;
+}
+
+.b-group__item {
+    display: inline-block;
+    margin-right: -5px;
+/ / border : 1 px solid #e8ecec;
+}
+
+.b-group__item:last-child {
+    margin: 0;
+}
+
+.b-search__option {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.b-mail__checkall {
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0 25px 0 0;
+    padding: 6px 15px;
+    color: #757575;
+    background-color: #fff;
+}
+.b-search__item-title{
+    margin: 0;
+}
+.b-mail__btn-item {
+    padding: 5px 10px;
+    border: 1px solid #e8ecec;
+    color: #757575;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+
+.b-mail__btn-item:hover {
+    background-color: #e6e6e6;
+}
+
+.b-mail__important {
+    margin-left: 20px;
+}
+
+.b-mail__sourse-item {
+
+}
+
+.b-mail__important-item {
+}
+
+.b-mail__page-title {
+    margin: 0 15px 0 0;
+    padding: 5px 10px;
+    color: #757575;
+    font-size: 14px;
+}
+
+.b-mail__pages {
+    color: #666666;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.right-item {
+    float: right;
+}
+
+.b-list__search {
+    background: #fafafa;
+    padding: 7px;
+}
+
+{
     outline: 1px solid red
 }

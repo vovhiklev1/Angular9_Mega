@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <header>
+        <header class="navbar-fixed-top">
             <div class="col-md-2 nopadding">
                 <div class="b-logo__container clearfix">
                     <div class="b-header__logo ">
@@ -87,124 +87,144 @@
 
     <div class="row">
         <aside class="col-md-2 nopadding">
-            <div class="b-aside__profile">
-                <div class="b-nav__profile">
-                    <img class="b-nav__img" src="img/me.jpg">
+            <div class="col-md-2 nopadding fixed-left">
+                <div class="b-aside-container">
+                    <div class="b-aside__profile ">
+                        <div class="b-nav__profile">
+                            <img class="b-nav__img" src="img/me.jpg">
 
-                    <div class="b-nav__content">
-                        <div class="b-nav__items">
-                            <span class="b-nav__message">WELCOME</span>
-                            <span class="b-nav__name">JAFIR DOE</span>
+                            <div class="b-nav__content">
+                                <div class="b-nav__items">
+                                    <span class="b-nav__message">WELCOME</span>
+                                    <span class="b-nav__name">JAFIR DOE</span>
 
-                            <div class="b-nav__status">
-                                <div class="b-status__icon"></div>
-                                <span class="b-status__name">ONLINE</span>
+                                    <div class="b-nav__status">
+                                        <div class="b-status__icon"></div>
+                                        <span class="b-status__name">ONLINE</span>
+                                    </div>
+                                    <div class="b-nav__buttons">
+                                        <div class="b-button__item">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </div>
+                                        <div class="b-button__item">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="b-button__item">
+                                            <i class="fa fa-arrows-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="b-nav__buttons">
-                                <div class="b-button__item">
-                                    <i class="fa fa-envelope-o"></i>
-                                </div>
-                                <div class="b-button__item">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <div class="b-button__item">
-                                    <i class="fa fa-arrows-alt"></i>
-                                </div>
-                            </div>
+
                         </div>
-                    </div>
 
+                        <ul class="b-aside__menu" ng-controller="menuCtrl">
+                            <li class="b-menu__item "
+                                ng-mouseover="Dashboard = true"
+                                ng-mouseleave="Dashboard = false">
+                                <a href="#/Dashboard1" class="b-item__link"
+                                   ng-class="Dashboard && 'b-item__link--active'">DASHBOARD</a>
+                                <ul class="b-menu__item--nested "
+
+                                    ng-mouseover="Dashboard = true"
+                                    ng-mouseleave="Dashboard=false"
+                                    ng-show="Dashboard"
+                                        >
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link " href="#/view1/Dashboard1">Dashboard
+                                            1</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard2">Dashboard
+                                            2</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard3">Dashboard
+                                            3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="b-menu__item"
+                                ng-mouseover="Mail = true"
+                                ng-mouseleave="Mail=false">
+                                <a href="#/Inbox" class="b-item__link" ng-class="Mail && 'b-item__link--active'"
+                                        >MAIL BOX</a>
+                                <ul class="b-menu__item--nested"
+                                    ng-mouseover="Mail = true"
+                                    ng-mouseleave="Mail=false"
+                                    ng-show="Mail ">
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Inbox">Inbox</a></li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link"
+                                           href="#/view1/Compose">Important</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="b-menu__item"
+                                ng-mouseover="Font = true"
+                                ng-mouseleave="Font = false">
+                                <a class="b-item__link"
+                                   ng-class="Font && 'b-item__link--active'">ICONS</a>
+                                <ul class="b-menu__item--nested"
+                                    ng-mouseover="Font = true"
+                                    ng-mouseleave="Font=false"
+                                    ng-show="Font ">
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Font">Font
+                                            Awesome</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Line">Line Icons</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="b-menu__item"
+                                ng-mouseover="Pages = true"
+                                ng-mouseleave="Pages = false">
+                                <a class="b-item__link"
+                                   ng-class="Pages && 'b-item__link--active'">PAGES</a>
+                                <ul class="b-menu__item--nested"
+                                    ng-mouseover="Pages = true  "
+                                    ng-mouseleave="Pages = false "
+                                    ng-show="Pages">
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Blog</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Single
+                                            Post</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Contact
+                                            Us</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Google
+                                            Map</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link"
+                                           href="#/view1/Dashboard1">Invoice</a>
+                                    </li>
+                                    <li class="b-menu__item b-menu__nested_item">
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Search
+                                            Result</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <ul class="b-aside__menu" ng-controller="menuCtrl">
-                <li class="b-menu__item "
-                    ng-mouseover="Dashboard = true"
-                    ng-mouseleave="Dashboard = false">
-                    <a href="#/Dashboard1" class="b-item__link"
-                       ng-class="Dashboard && 'b-item__link--active'">DASHBOARD</a>
-                    <ul class="b-menu__item--nested "
-
-                        ng-mouseover="Dashboard = true"
-                        ng-mouseleave="Dashboard=false"
-                        ng-show="Dashboard"
-                            >
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link " href="#/view1/Dashboard1">Dashboard 1</a></li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard2">Dashboard 2</a></li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard3">Dashboard 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="b-menu__item"
-                    ng-mouseover="Mail = true"
-                    ng-mouseleave="Mail=false">
-                    <a href="#/Inbox" class="b-item__link" ng-class="Mail && 'b-item__link--active'"
-                            >MAIL BOX</a>
-                    <ul class="b-menu__item--nested"
-                        ng-mouseover="Mail = true"
-                        ng-mouseleave="Mail=false"
-                        ng-show="Mail ">
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Inbox">Inbox</a></li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Compose">Important</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="b-menu__item"
-                    ng-mouseover="Font = true"
-                    ng-mouseleave="Font = false">
-                    <a class="b-item__link"
-                       ng-class="Font && 'b-item__link--active'">ICONS</a>
-                    <ul class="b-menu__item--nested"
-                        ng-mouseover="Font = true"
-                        ng-mouseleave="Font=false"
-                        ng-show="Font ">
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Font">Font Awesome</a></li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Line">Line Icons</a></li>
-
-                    </ul>
-                </li>
-                <li class="b-menu__item"
-                    ng-mouseover="Pages = true"
-                    ng-mouseleave="Pages = false">
-                    <a class="b-item__link"
-                       ng-class="Pages && 'b-item__link--active'">PAGES</a>
-                    <ul class="b-menu__item--nested"
-                        ng-mouseover="Pages = true  "
-                        ng-mouseleave="Pages = false "
-                        ng-show="Pages">
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Blog</a>
-                        </li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Single Post</a>
-                        </li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Contact Us</a>
-                        </li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Google Map</a>
-                        </li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Invoice</a>
-                        </li>
-                        <li class="b-menu__item b-menu__nested_item">
-                            <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Search Result</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-
-            </ul>
         </aside>
-        <div class="col-md-10 nopadding">
+
+        <div class="col-md-10 nopadding ">
             <div class="b-content">
                 <div class="b-content__dir">
                     <a class="b-dir__home" href="#"><i class="fa fa-home"></i></a>
@@ -212,16 +232,16 @@
                     <span class="b-dir__current">Dashboard</span>
                 </div>
                 <div class="b-content__main">
-                    <div class="b-content__header">
+                    <div class="b-main__header">
                         <div class="b-header">
                             <h2 class="b-header__main">Font Awesome</h2>
                             <span class="b-header__sub">Admin Moderator</span>
                         </div>
                     </div>
                     <!-- <span>Frame</span>-->
-                    <div class="row nopadding">
-                        <div class="col-md-10 nopadding  b-content__source--color" main-frame-directive="true"></div>
-                    </div>
+                    <!--<div class="row nopadding">-->
+                    <div class="b-main__source" main-frame-directive="true"></div>
+                    <!--  </div>-->
 
                 </div>
             </div>

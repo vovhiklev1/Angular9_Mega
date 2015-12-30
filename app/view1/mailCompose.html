@@ -1,9 +1,39 @@
-<div class="row">
-    <div class="col-md-12">
-        <form>
-            <input name="" placeholder="name">
-            <input name="email" placeholder="email">
-            <textarea>Write your email</textarea>
+<!--<div class="row">
+    <div class="col-md-12">-->
+<div class="b-compose-container">
+    <div class="b-compose">
+        <div class="b-compose__header">
+            <span class="b-compose__title">Compose Email</span>
+        </div>
+        <form class="b-compose__content">
+            <div class="row" >
+                <div class="col-md-6">
+                    <input class="b-compose__name" name="email" type="text" placeholder="Email">
+                </div>
+                <div class="col-md-6">
+                    <input class="b-compose__subject" name="subject" type="text" placeholder="Subject">
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-12">
+                    <input class="b-compose__bcc" name="bcc" type="text" placeholder="Bcc">
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="b-compose__textarea-container">
+                        <textarea class="b-compose__textarea" placeholder="Write your email" rows="5"></textarea>
+                        <div class="b-compose__btn-container">
+                            <a href="#" class="b-compose__btn">SEND EMAIL</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </form>
     </div>
 </div>
+
+<!--  </div>
+</div>-->
