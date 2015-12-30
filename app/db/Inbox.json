@@ -1,0 +1,102 @@
+{
+  "list": [
+    {
+      "_id": "5683cce5d500387cc37a16d7",
+      "index": 0,
+      "name": "Lynda Hardin",
+      "email": "lyndahardin@entropix.com",
+      "important": true,
+      "type": "readed",
+      "message": [
+        "aliqua",
+        "incididunt",
+        "enim",
+        "aliqua",
+        "adipisicing",
+        "fugiat",
+        "veniam"
+      ],
+      "attached": "http://placehold.it/32x32",
+      "time": "2001-12-3 2:49:9 +0300"
+    },
+    {
+      "_id": "5683cce51e0bc8f2a1971c48",
+      "index": 1,
+      "name": "Nicholson Mclean",
+      "email": "nicholsonmclean@entropix.com",
+      "important": false,
+      "type": "readed",
+      "message": [
+        "nulla",
+        "deserunt",
+        "sit",
+        "enim",
+        "duis",
+        "qui",
+        "pariatur"
+      ],
+      "attached": "http://placehold.it/32x32",
+      "time": "2002-11-1 24:12:47 +0300"
+    },
+    {
+      "_id": "5683cce5434bceb6755b9a37",
+      "index": 2,
+      "name": "Hester Suarez",
+      "email": "hestersuarez@entropix.com",
+      "important": false,
+      "type": "readed",
+      "message": [
+        "culpa",
+        "amet",
+        "ea",
+        "enim",
+        "ut",
+        "duis",
+        "occaecat"
+      ],
+      "attached": "http://placehold.it/32x32",
+      "time": "2011-8-26 20:59:26 +0300"
+    },
+    {
+      "_id": "5683cce5c7a5995ea9b06a23",
+      "index": 3,
+      "name": "Leola Fitzpatrick",
+      "email": "leolafitzpatrick@entropix.com",
+      "important": false,
+      "type": "spam",
+      "message": [
+        "magna",
+        "esse",
+        "sunt",
+        "qui",
+        "Lorem",
+        "do",
+        "nulla"
+      ],
+      "attached": "http://placehold.it/32x32",
+      "time": "2011-11-12 7:44:17 +0300"
+    },
+    {
+      "_id": "5683cce53f18cf1198fb92d4",
+      "index": 4,
+      "name": "Veronica Mcfadden",
+      "email": "veronicamcfadden@entropix.com",
+      "important": false,
+      "type": "trach",
+      "message": [
+        "aute",
+        "officia",
+        "velit",
+        "culpa",
+        "adipisicing",
+        "do",
+        "et"
+      ],
+      "attached": "http://placehold.it/32x32",
+      "time": "2009-11-13 24:48:26 +0300"
+    }
+  ]
+}
+
+
+

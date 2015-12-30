@@ -619,7 +619,7 @@ header {
     border-bottom: 1px solid transparent;
 }
 
-.b-compose-container {
+.b-compose-container, .b-inbox-container {
     margin: 38px 0 0 0;
 }
 
@@ -705,9 +705,11 @@ header {
     color: #757575;
     background-color: #fff;
 }
-.b-search__item-title{
+
+.b-search__item-title {
     margin: 0;
 }
+
 .b-mail__btn-item {
     padding: 5px 10px;
     border: 1px solid #e8ecec;
@@ -715,7 +717,6 @@ header {
     font-size: 14px;
     background-color: #fff;
 }
-
 
 .b-mail__btn-item:hover {
     background-color: #e6e6e6;
@@ -746,12 +747,94 @@ header {
 }
 
 .right-item {
-    float: right;
+    float: right !important;
 }
 
 .b-list__search {
     background: #fafafa;
     padding: 7px;
+    margin-top: 13px;
+}
+
+.b-mail-list__container {
+    padding-top: 20px;
+}
+
+.b-mail-list {
+    padding: 0 20px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.b-mail-list:hover {
+    background-color: #FAFAFA;
+}
+
+.b-item--star, .b-item--clip {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.b-item__sender {
+    font-weight: bold !important;
+}
+
+.b-item__sender {
+    width: 130px;
+}
+
+.b-item__text {
+    width: 270px;
+}
+
+.b-item--wrap {
+/ / display : inline-block;
+
+/ / margin : auto 0;
+/ / height : 20 px;
+/ / line-height : 0;
+
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+.b-list__item-container {
+    list-style: none;
+    float: left;
+    padding: 0 10px;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+
+}
+
+.b-list__item-container:last-child {
+    padding: 0;
+}
+
+.b-list__item {
+    display: inline-block;
+/ / line-height : 20 px;
+    height: 20px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #333333 !important;
+    font-weight: normal;
+    margin: 0 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.b-list__item--icon {
+    margin: 0;
+}
+
+.b-item__time {
+    color: #999999;
+    font-size: 11px;
 }
 
 {
