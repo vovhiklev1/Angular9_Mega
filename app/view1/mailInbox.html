@@ -9,11 +9,17 @@
                 <div class="col-md-12">
                     <div class="b-mail-list__nav-container">
                         <div class="b-mail-list__nav">
-                            <ul class="b-list__search b-list-style clearfix">
+                            <ul onmousedown="return false" onselectstart="return false"
+                                class="b-list__search b-list-style clearfix">
                                 <li class="b-search__item  b-mail__checkall">
                                     <label class="b-search__item-title"><input class="b-search__item-check"
                                                                                name="mail-list-check" type="checkbox"
-                                                                               value="all_list"> Check All</label>
+                                                                               value="all_list"
+                                                                               ng-model="checkedAll"
+                                                                               ng-click="toggleAll()"
+
+                                            > Check
+                                        All</label>
                                 </li>
                                 <li class="b-search__item">
                                     <ul class="b-search__item--group b-list-style b-mail__sourse">
@@ -27,7 +33,8 @@
                                                    type="radio">
                                             <i class="fa fa-folder-o"></i>
                                         </li>
-                                        <li class="b-group__item b-mail__btn-item b-mail__sourse-item">
+                                        <li ng-click="removeItems()"
+                                            class="b-group__item b-mail__btn-item b-mail__sourse-item">
                                             <input class="b-search__item-trach b-search__option" name="mail-option"
                                                    type="radio">
                                             <i class="fa fa-trash-o"></i>
@@ -52,16 +59,18 @@
                                 <li class="b-search__item right-item">
                                     <ul class="b-search__item--group b-list-style b-mail__pagination ">
                                         <li class="b-group__item  b-mail__page-title">
-                                            <span class="b-mail__page-current b-mail__pages">1 - 20</span>
+                                            <span class="b-mail__page-current b-mail__pages">{{currentList}}</span>
                                             <span class="b-mail__page-of b-mail__pages"> of </span>
-                                            <span class="b-mail__page-all b-mail__pages">276</span>
+                                            <span class="b-mail__page-all b-mail__pages">{{countItems}}</span>
                                         </li>
                                         <li class="b-group__item b-mail__page__arrows">
                                             <ul class="b-search__item--group b-list-style">
-                                                <li class="b-arrow__left b-mail__btn-item b-group__item">
+                                                <li ng-click="setPrevList()"
+                                                    class="b-arrow__left b-mail__btn-item b-group__item">
                                                     <i class="fa fa-long-arrow-left"></i>
                                                 </li>
-                                                <li class="b-arrow__right b-mail__btn-item b-group__item">
+                                                <li ng-click="setNextList()"
+                                                    class="b-arrow__right b-mail__btn-item b-group__item">
                                                     <i class="fa fa-long-arrow-right"></i>
                                                 </li>
                                             </ul>
@@ -80,10 +89,19 @@
                 <div class="col-md-12">
                     <div class="b-mail-list__container">
                         <ul class="b-mail-list b-list-style clearfix"
-                            ng-repeat="item in list">
+                            ng-repeat="item in list | orderBy:'-time'">
                             <li class=" b-list__item-container">
-                                <input class="b-list__item b-item--cheched" name="item__cheched" type="checkbox">
+                                <input class="b-list__item b-item--cheched"
+                                       name="item__checked"
+                                       type="checkbox"
+
+                                       ng-model1="getItem(item)"
+                                       ng-checked="getItem(item)"
+                                       ng-click="toggle(item, checkedAll,$index)"
+
+                                        >
                             </li>
+                            <!-- ng-model="checkedAll"-->
 
                             <li class=" b-list__item-container">
                                 <label class="b-list__item--icon"><input class="b-list__item b-item--star"
@@ -93,25 +111,25 @@
 
                             <li class=" b-list__item-container ">
                                 <div class=" b-item--wrap">
-                                    <span class="b-list__item b-item__sender">{{item.name}}</span>
+                                    <span class="b-list__item b-item__sender">{{f.getShortName(item.name)}}</span>
                                 </div>
                             </li>
 
                             <li class=" b-list__item-container ">
                                 <div class="b-item--wrap ">
-                                    <span class="b-list__item b-item__text">{{item.message.join(' ')}}</span>
+                                    <span class="b-list__item b-item__text">{{f.getShortMessage(item.message)}}</span>
                                 </div>
                             </li>
 
                             <li class=" b-list__item-container">
                                 <label class="b-list__item--icon"><input class="b-list__item b-item--clip"
                                                                          name="item__clip" type="checkbox"><i
-                                        class="fa fa-paperclip"></i></label>
+                                        ng-if="item.attached" class="fa fa-paperclip"></i></label>
                             </li>
 
                             <li class=" b-list__item-container right-item">
                                 <div class="b-item--wrap">
-                                    <span class="b-list__item b-item__time">20:46</span></div>
+                                    <span class="b-list__item b-item__time">{{f.getTimeAgo(item.time)}}</span></div>
                             </li>
 
 

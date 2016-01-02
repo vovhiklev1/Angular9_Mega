@@ -708,6 +708,14 @@ header {
 
 .b-search__item-title {
     margin: 0;
+    cursor: pointer;
+}
+.b-search__item-check{
+    margin: 0 !important;
+    display: inline-block;
+    line-height: 13px;
+    vertical-align: middle;
+
 }
 
 .b-mail__btn-item {
@@ -716,6 +724,7 @@ header {
     color: #757575;
     font-size: 14px;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .b-mail__btn-item:hover {
