@@ -43,12 +43,21 @@
                                 </li>
                                 <li class="b-search__item">
                                     <ul class="b-search__item--group b-list-style b-mail__important">
-                                        <li class="b-group__item  b-mail__btn-item b-mail__important-item">
+                                        <li class="b-group__item  b-mail__btn-item b-mail__important-item"
+                                            ng-model="important"
+                                            ng-click="important=!important"
+                                            ng-class="{'b-mail__btn-item--active' : important}"
+                                                >
                                             <input class="b-search__item-star b-search__option" name="mail-option"
-                                                   type="radio">
+                                                   type="radio"
+                                                    >
                                             <i class="fa fa-star-o"></i>
                                         </li>
-                                        <li class="b-group__item b-mail__btn-item b-mail__important-item">
+                                        <li class="b-group__item b-mail__btn-item b-mail__flag-item"
+                                            ng-model="flag"
+                                            ng-click="flag=!flag"
+                                            ng-class="{'b-mail__btn-item--active' : flag}"
+                                                >
                                             <input class="b-search__item-flag b-search__option" name="mail-option"
                                                    type="radio">
                                             <i class="fa fa-flag-o"></i>
@@ -89,7 +98,8 @@
                 <div class="col-md-12">
                     <div class="b-mail-list__container">
                         <ul class="b-mail-list b-list-style clearfix"
-                            ng-repeat="item in list | orderBy:'-time'">
+
+                            ng-repeat="item in list|  mailImportantFilter:  important:flag"> <!--orderBy:'-time' |-->
                             <li class=" b-list__item-container">
                                 <input class="b-list__item b-item--cheched"
                                        name="item__checked"
@@ -106,6 +116,9 @@
                             <li class=" b-list__item-container">
                                 <label class="b-list__item--icon"><input class="b-list__item b-item--star"
                                                                          name="item__star" type="checkbox"><i
+                                        ng-model="item.important"
+                                        ng-click="item.important=!item.important"
+                                        ng-class="{'b-item-star--active' : item.important}"
                                         class="fa fa-star-o"></i></label>
                             </li>
 
@@ -117,6 +130,8 @@
 
                             <li class=" b-list__item-container ">
                                 <div class="b-item--wrap ">
+
+                                    <message-type-directive></message-type-directive>
                                     <span class="b-list__item b-item__text">{{f.getShortMessage(item.message)}}</span>
                                 </div>
                             </li>

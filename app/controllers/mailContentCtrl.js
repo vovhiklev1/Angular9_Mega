@@ -20,7 +20,6 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
         console.log('loaded');
         //  $scope.list = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1] + 1);
         //  console.log(' success loadList1 ' + $scope.f.responseData.get()[0].name);
-
     });
 
     $scope.setNextList = function () {
@@ -38,6 +37,7 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
         $scope.list = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
         $scope.currentList = $scope.f.currentPageS.getCurrentPage() + ' - ' + $scope.f.getListsCount();
         $scope.countItems = list.countItems;
+        $scope.checkedAll = false;
         //console.log(' success loadList1 ' + list[0].name);
     };
 
@@ -51,22 +51,32 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
             $scope.checkedItems.push(item);
         }
         return false
-        console.log('toggle checkedItems ' + $scope.checkedItems.length)
+     //   console.log('toggle checkedItems ' + $scope.checkedItems.length)
     };
 
     $scope.toggleAll = function () {
-        var list = $scope.list;
-        var tempList = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
+        var tempList = $scope.list;
+        // var tempList = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
+       // console.log('toggleAll tempList ' + tempList.length + ' $scope.checkedAll:' + $scope.checkedAll)
         if ($scope.checkedAll) {
             angular.forEach(tempList, function (val, i) {
-                $scope.checkedItems.push(val);
-
-            });
+                var itemIdx = $scope.checkedItems.indexOf(val);
+                if (itemIdx == -1) {
+                    $scope.checkedItems.push(val);
+                }
+               // console.log('  $scope.checkedItems.push(val); ' + $scope.checkedItems.length)
+            })
         } else {
-            $scope.checkedItems = [];
+            angular.forEach(tempList, function (val, idx) {
+                var itemIdx = $scope.checkedItems.indexOf(val);
+                if (itemIdx > -1) {
+                    $scope.checkedItems.splice(itemIdx, 1);
+                }
+            });
+
         } //console.log('checkedItems '+ checkedItems.length      )
         ;
-        console.log('toggleAll checkedItems ' + $scope.checkedItems.length)
+       // console.log('toggleAll checkedItems ' + $scope.checkedItems.length)
         /*angular.forEach(checkedItems,function(val,key){
          $scope.list[val].dd
          });*/
@@ -74,7 +84,7 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
 
     $scope.getItem = function (item) {
         if ($scope.checkedItems.indexOf(item) > -1) {
-           // console.log('getItem checkedItems ' + $scope.checkedItems.length)
+            // console.log('getItem checkedItems ' + $scope.checkedItems.length)
             return true
         } else {
             false

@@ -29,3 +29,12 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
+app.run(function(inboxFactory){
+    inboxFactory.loadList().then(function (response) {
+        inboxFactory.responseDataS.set(response.data.list);
+        //$scope.updateView();
+        console.log('run loaded');
+        //  $scope.list = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1] + 1);
+        //  console.log(' success loadList1 ' + $scope.f.responseData.get()[0].name);
+    });
+})

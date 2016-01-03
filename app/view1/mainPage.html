@@ -31,31 +31,60 @@
                     </form>
                 </div>
                 <div class="col-md-2 nopadding">
-                    <div class=" b-header__notify ">
+                    <div class="b-header__notify" notify-directive>
                         <div class="b-notify__item">
-                            <div class="b-notify__messages">
+
+                            <div class="b-notify__messages" notify-messages-directive>
                                 <i class="fa fa-envelope-o"></i>
 
                                 <div class="b-notify__count b-notify__count--messages">
-                                    <span class="b-notify__count--text">1</span>
+                                    <span class="b-notify__count--text">{{messageCount}}
+                                    </span>
+                                </div>
+
+                                <div class="b-notify__popup-list" ng-if="dropList">
+
+                                    <ul class="b-popup">
+                                        <div class="b-popup_carrot"></div>
+                                        <li class="b-popup__item b-popup__header">
+                                            <div class="b-popup__header">
+                                                <span class="b-popup__header-text">{{title}}</span>
+                                            </div>
+                                        </li>
+                                        <li class="b-popup__item" ng-repeat="item in popUpList">
+                                            <ul class="b-popup__content clearfix">
+                                                <li class="b-popup__img">
+                                                    <img ng-src="{{item.img}}">
+                                                </li>
+                                                <li class="b-popup__info">
+                                                    <h6 class="b-popup__title">{{item.name}}</h6>
+                                                    <span class="b-popup__message">{{f.getShortMessage(item.message)}}</span>
+                                                    <span class="b-popup__timeago">{{f.getTimeAgo(item.time)}}</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>
                         <div class="b-notify__item">
-                            <div class="b-notify__rings">
+                            <div class="b-notify__rings" notify-notifications-directive>
                                 <i class="fa fa-bell-o"></i>
 
                                 <div class="b-notify__count b-notify__count--rings">
-                                    <span class="b-notify__count--text">1</span>
+                                        <span class="b-notify__count--text">{{notifications}}
+                                        </span>
                                 </div>
                             </div>
                         </div>
                         <div class="b-notify__item">
-                            <div class="b-nitify__tasks">
+                            <div class="b-nitify__tasks" notify-activities-directive>
                                 <i class="fa fa-briefcase "></i>
 
                                 <div class="b-notify__count b-notify__count--tasks">
-                                    <span class="b-notify__count--text">1</span>
+                                        <span class="b-notify__count--text">{{activity}}
+                                        </span>
                                 </div>
                             </div>
                         </div>

@@ -7,6 +7,7 @@
       "email": "sueyang@lyrichord.com",
       "important": true,
       "type": "unread",
+      "img": "./img/sender1.jpg",
       "message": [
         "cillum",
         "qui",
@@ -26,6 +27,7 @@
       "email": "fullersimpson@lyrichord.com",
       "important": false,
       "type": "readed",
+      "img": "./img/sender2.jpg",
       "message": [
         "nisi",
         "exercitation",
@@ -45,6 +47,7 @@
       "email": "angelicawaters@lyrichord.com",
       "important": true,
       "type": "flagged",
+      "img": "./img/sender3.jpg",
       "message": [
         "amet",
         "esse",
@@ -64,6 +67,7 @@
       "email": "elsielangley@lyrichord.com",
       "important": true,
       "type": "trach",
+      "img": "./img/sender4.jpg",
       "message": [
         "fugiat",
         "pariatur",
