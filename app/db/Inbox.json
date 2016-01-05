@@ -1,9 +1,8 @@
-{
-  "list": [
+ [
     {
       "_id": "5684781af4920b7ffb686a8a",
       "index": 0,
-      "name": "Sue Yang",
+      "name": "Sue1 Yang",
       "email": "sueyang@lyrichord.com",
       "important": true,
       "type": "unread",
@@ -936,7 +935,7 @@
       "time": "2015-2-14 6:13:29 +0300"
     }
   ]
-}
+
 
 
 

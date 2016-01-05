@@ -7,19 +7,29 @@
  *
  * @requires $scope
  * */
-app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $routeParams, urlRouteFactory, linkDataFactory, inboxFactory) {
+app.controller('mailContentCtrl', function ($scope,filterFilter, $exceptionHandler, $http, $rootScope, $filter, $location, $routeParams, urlRouteFactory, linkDataFactory, inboxFactory) {
     $scope.mail = urlRouteFactory;
     $scope.currentPageId = linkDataFactory.currentPageId;
     $scope.temp = $scope.mail.mailContent[$scope.currentPageId].template;
     $scope.f = inboxFactory;
 
+    //console.log('$exceptionHandler');
+    //throw "Fatal error";
+    $rootScope.updateNavIcons = function () {
+        $scope.f = inboxFactory;
+        var list2 = $scope.f.responseDataS.get('mail');
+        //Count mails in icons of nav mail panel
+        $scope.allNavIcon = list2.length;
+        $scope.trachNavIcon = filterFilter(list2, {type: 'trach'}).length;
+        $scope.flaggedNavIcon = filterFilter(list2, {type: 'flagged'}).length;
+        $scope.unreadNavIcon = filterFilter(list2, {type: 'unread'}).length;
+        $scope.importantNavIcon = filterFilter(list2, {important: true}).length;
+    };
 
-    $scope.f.loadList('./db/Inbox.json').then(function (response) {
-        $scope.f.responseDataS.set(response.data.list, 'mail');
+    $scope.f.loadList('https://api.myjson.com/bins/53ild').then(function (response) {
+        $scope.f.responseDataS.set(response.data, 'mail'); //$scope.f.responseDataS.set(response.data.list, 'mail');
         $scope.updateView();
         console.log('loaded');
-        //  $scope.list = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1] + 1);
-        //  console.log(' success loadList1 ' + $scope.f.responseData.get()[0].name);
     });
 
     $scope.setNextList = function () {
@@ -46,18 +56,21 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
                 }
                 array.push(listFiltered[key]);
             }
+            var listFiltered = array;
             $scope.list = array.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
         }
 
+        $rootScope.listFiltered = listFiltered;
         $scope.currentList = $scope.f.currentPageS.getCurrentPage() + ' - ' + $scope.f.getListsCount();
-        $scope.countItems = listFiltered.countItems;
+        $scope.countItems = listFiltered.length;
         $scope.checkedAll = false;
+
+        $rootScope.updateNavIcons();
     };
 
     $scope.checkedItems = [];
     $scope.toggle = function (item, selected, idx) {
         var idx = $scope.checkedItems.indexOf(item);
-
         if (idx > -1) {
             $scope.checkedItems.splice(idx, 1)
         } else {
@@ -69,8 +82,7 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
 
     $scope.toggleAll = function () {
         var tempList = $scope.list;
-        // var tempList = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
-        // console.log('toggleAll tempList ' + tempList.length + ' $scope.checkedAll:' + $scope.checkedAll)
+
         if ($scope.checkedAll) {
             angular.forEach(tempList, function (val, i) {
                 var itemIdx = $scope.checkedItems.indexOf(val);
@@ -87,17 +99,13 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
                 }
             });
 
-        } //console.log('checkedItems '+ checkedItems.length      )
+        }
         ;
-        // console.log('toggleAll checkedItems ' + $scope.checkedItems.length)
-        /*angular.forEach(checkedItems,function(val,key){
-         $scope.list[val].dd
-         });*/
+
     };
 
     $scope.getItem = function (item) {
         if ($scope.checkedItems.indexOf(item) > -1) {
-            // console.log('getItem checkedItems ' + $scope.checkedItems.length)
             return true
         } else {
             false
@@ -124,8 +132,7 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
                     //$scope.updateView();
                     console.log("sendData success  ");
                 },
-                function (response) { // optional
-                    // failed
+                function (response) {
                     console.log("sendData failed  ");
                 }
             );

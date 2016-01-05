@@ -12,6 +12,11 @@ angular.module('app')
         var Service = {
             mailContent: [
                 {
+                    name: 'not-found',
+                    url: 'view1_/not_found_frame.html',
+                    template: 'not-found-frame-directive="true"'  //'<div class="d" mail-compose-directive="true"></div>'
+                },
+                {
                     name: 'Inbox',
                     url: 'view1_/mailContent.html',
                     // template: '<div class="d" mail-inbox-directive="true" ng-transclude></div>'
@@ -39,6 +44,8 @@ angular.module('app')
                     template: 'mail-inbox-directive="true"'  //'<div class="d" mail-compose-directive="true"></div>'
                 },
 
+
+
                 {
                     name: 'Compose',
                     url: 'view1_/mailCompose.html',
@@ -46,17 +53,17 @@ angular.module('app')
                 },
                 {
 
-                    name: 'Dashboard 1',
-                    url: 'view1/mailCompose.html',
-                    template: 'mail-compose-directive="true"'
-                },
-                {
-                    name: 'Dashboard 2',
+                    name: 'Dashboard1',
                     url: 'view1/mailCompose.html',
                     template: 'mail-inbox-directive="true"'
                 },
                 {
-                    name: 'Dashboard 3',
+                    name: 'Dashboard2',
+                    url: 'view1/mailCompose.html',
+                    template: 'mail-inbox-directive="true"'
+                },
+                {
+                    name: 'Dashboard3',
                     url: 'view1/mailCompose.html',
                     template: 'mail-inbox-directive="true"'
                 },

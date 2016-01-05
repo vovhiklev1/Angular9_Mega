@@ -4,7 +4,7 @@
             <div class="col-md-2 nopadding">
                 <div class="b-logo__container clearfix">
                     <div class="b-header__logo ">
-                        <a class="b-header__logo--item" href="#">
+                        <a class="b-header__logo--item" href="#/">
                             <img src="img/logo.png">
                         </a>
                     </div>
@@ -34,15 +34,15 @@
                     <div class="b-header__notify" notify-directive>
                         <div class="b-notify__item">
 
-                            <div class="b-notify__messages" notify-messages-directive >
+                            <div class="b-notify__messages" notify-messages-directive>
                                 <i class="fa fa-envelope-o"></i>
 
                                 <div class="b-notify__count b-notify__count--messages">
-                                    <span class="b-notify__count--text">{{messageCount}}
+                                    <span class="b-notify__count--text" >{{messageCount}}
                                     </span>
                                 </div>
 
-                                <div class="b-notify__popup-list" notify-pop-up-list-directive  ng-if="dropList">
+                                <div class="b-notify__popup-list" notify-pop-up-list-directive ng-if="dropList">
 
                                     <!--<ul1 class="b-popup">
                                         <div class="b-popup_carrot"></div>
@@ -78,7 +78,7 @@
                                         </span>
                                 </div>
 
-                                <div class="b-notify__popup-list" notify-pop-up-list-directive  ng-if="dropList">
+                                <div class="b-notify__popup-list" notify-pop-up-list-directive ng-if="dropList">
                                 </div>
 
                             </div>
@@ -156,7 +156,7 @@
                             <li class="b-menu__item "
                                 ng-mouseover="Dashboard = true"
                                 ng-mouseleave="Dashboard = false">
-                                <a href="#/Dashboard1" class="b-item__link"
+                                <a href="#/view1/Dashboard1" class="b-item__link"
                                    ng-class="Dashboard && 'b-item__link--active'">DASHBOARD</a>
                                 <ul class="b-menu__item--nested "
 
@@ -169,11 +169,11 @@
                                             1</a>
                                     </li>
                                     <li class="b-menu__item b-menu__nested_item">
-                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard2">Dashboard
+                                        <a class="b-item__link b-item__nested--link" href="#/">Dashboard
                                             2</a>
                                     </li>
                                     <li class="b-menu__item b-menu__nested_item">
-                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard3">Dashboard
+                                        <a class="b-item__link b-item__nested--link" href="#/">Dashboard
                                             3</a>
                                     </li>
                                 </ul>
@@ -181,7 +181,7 @@
                             <li class="b-menu__item"
                                 ng-mouseover="Mail = true"
                                 ng-mouseleave="Mail=false">
-                                <a href="#/Inbox" class="b-item__link" ng-class="Mail && 'b-item__link--active'"
+                                <a href="#/view1/Inbox" class="b-item__link" ng-class="Mail && 'b-item__link--active'"
                                         >MAIL BOX</a>
                                 <ul class="b-menu__item--nested"
                                     ng-mouseover="Mail = true"
@@ -191,7 +191,7 @@
                                         <a class="b-item__link b-item__nested--link" href="#/view1/Inbox">Inbox</a></li>
                                     <li class="b-menu__item b-menu__nested_item">
                                         <a class="b-item__link b-item__nested--link"
-                                           href="#/view1/Compose">Important</a>
+                                           href="#/view1/Compose">Compose</a>
                                     </li>
                                 </ul>
                             </li>
@@ -225,18 +225,18 @@
                                     ng-mouseleave="Pages = false "
                                     ng-show="Pages">
                                     <li class="b-menu__item b-menu__nested_item">
-                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Blog</a>
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1_">Blog</a>
                                     </li>
                                     <li class="b-menu__item b-menu__nested_item">
-                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Single
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1_">Single
                                             Post</a>
                                     </li>
                                     <li class="b-menu__item b-menu__nested_item">
-                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Contact
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1_">Contact
                                             Us</a>
                                     </li>
                                     <li class="b-menu__item b-menu__nested_item">
-                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Google
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1_">Google
                                             Map</a>
                                     </li>
                                     <li class="b-menu__item b-menu__nested_item">
@@ -244,7 +244,7 @@
                                            href="#/view1/Dashboard1">Invoice</a>
                                     </li>
                                     <li class="b-menu__item b-menu__nested_item">
-                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1">Search
+                                        <a class="b-item__link b-item__nested--link" href="#/view1/Dashboard1_">Search
                                             Result</a>
                                     </li>
 
@@ -261,7 +261,7 @@
         <div class="col-md-10 nopadding ">
             <div class="b-content">
                 <div class="b-content__dir">
-                    <a class="b-dir__home" href="#"><i class="fa fa-home"></i></a>
+                    <a class="b-dir__home" href="#/"><i class="fa fa-home"></i></a>
                     <span class="b-dir__text-space">/</span>
                     <span class="b-dir__current">Dashboard</span>
                 </div>
@@ -275,6 +275,7 @@
                     <!-- <span>Frame</span>-->
                     <!--<div class="row nopadding">-->
                     <div class="b-main__source" main-frame-directive="true"></div>
+                    <!--<div class="" not-found-frame-directive="true"></div>-->
                     <!--  </div>-->
 
                 </div>

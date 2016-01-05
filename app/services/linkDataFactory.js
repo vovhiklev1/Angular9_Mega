@@ -10,7 +10,7 @@ angular.module('app')
     .factory('linkDataFactory', function (urlRouteFactory) {
 
         var Service = {
-            currentPageId: 0,
+            currentPageId: 1,
             getDirectieve: function (name) {
                 var res = undefined;
                 urlRouteFactory.mailContent.forEach(function (item, i, mailContent) {

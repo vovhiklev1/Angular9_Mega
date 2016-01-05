@@ -2,6 +2,7 @@
     height: 100px;
 / / border : 1 px solid red;
 }
+article, aside, details, figcaption, figure,footer, header, menu, nav, section {display: block;}
 
 ul {
     list-style: none;
@@ -676,9 +677,9 @@ header {
 .b-item__count-container {
     position: absolute;
     height: 40px;
-    right: 0;
+    left: 280px;
     top: 50%;
-    transform: translate(-50%, -25%);
+    transform: translate(0%, -25%);
 }
 
 .b-count__text {
