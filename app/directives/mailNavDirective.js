@@ -12,8 +12,11 @@ angular.module('app')
         return {
             restrict: 'A',
             templateUrl:'view1/mailNav.html',
+            controller:'mailNavCtrl',
             link: function (scope, elem, attr) {
 
+
+              //  scope.$apply();
             }
         };
 });

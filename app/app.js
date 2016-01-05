@@ -3,12 +3,11 @@
 // Declare app level module which depends on views, and components
 var app = angular.module('app', [
     'ngRoute'/*,
-    'ngMockE2E',
+     'ngMockE2E',
      'myApp.view1',
      'myApp.view2',
      'myApp.version'*/
 ]);
-
 
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -29,12 +28,13 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-app.run(function(inboxFactory){
-    inboxFactory.loadList().then(function (response) {
-        inboxFactory.responseDataS.set(response.data.list);
-        //$scope.updateView();
-        console.log('run loaded');
-        //  $scope.list = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1] + 1);
-        //  console.log(' success loadList1 ' + $scope.f.responseData.get()[0].name);
+app.run(function (inboxFactory) {
+    inboxFactory.loadList('./db/Inbox.json').then(function (response) {
+        inboxFactory.responseDataS.set(response.data.list, 'mail');
+        console.log('run mail loaded');
+    });
+    inboxFactory.loadList('./db/notify.json').then(function (response) {
+        inboxFactory.responseDataS.set(response.data.list, 'notify');
+        console.log('run notify loaded');
     });
 })

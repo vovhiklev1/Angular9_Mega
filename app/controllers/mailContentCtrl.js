@@ -14,8 +14,8 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
     $scope.f = inboxFactory;
 
 
-    $scope.f.loadList().then(function (response) {
-        $scope.f.responseDataS.set(response.data.list);
+    $scope.f.loadList('./db/Inbox.json').then(function (response) {
+        $scope.f.responseDataS.set(response.data.list, 'mail');
         $scope.updateView();
         console.log('loaded');
         //  $scope.list = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1] + 1);
@@ -33,12 +33,25 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
     }
 
     $scope.updateView = function () {
-        var list = $scope.f.responseDataS.get();
-        $scope.list = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
+        var list = $scope.f.responseDataS.get('mail');
+        var listFiltered = $scope.f.inboxFilterView(list, $scope.important, $scope.flag, $scope.spam, $scope.unread, $scope.trach, $scope.readed);
+
+        if (listFiltered.length) {
+            $scope.list = listFiltered.slice($scope.f.viewList()[0], $scope.f.viewList()[1])
+        } else {
+            var array = [];
+            for (var key in listFiltered) {
+                if (!listFiltered.hasOwnProperty(key)) {
+                    continue;
+                }
+                array.push(listFiltered[key]);
+            }
+            $scope.list = array.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
+        }
+
         $scope.currentList = $scope.f.currentPageS.getCurrentPage() + ' - ' + $scope.f.getListsCount();
-        $scope.countItems = list.countItems;
+        $scope.countItems = listFiltered.countItems;
         $scope.checkedAll = false;
-        //console.log(' success loadList1 ' + list[0].name);
     };
 
     $scope.checkedItems = [];
@@ -51,20 +64,20 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
             $scope.checkedItems.push(item);
         }
         return false
-     //   console.log('toggle checkedItems ' + $scope.checkedItems.length)
+        //   console.log('toggle checkedItems ' + $scope.checkedItems.length)
     };
 
     $scope.toggleAll = function () {
         var tempList = $scope.list;
         // var tempList = list.slice($scope.f.viewList()[0], $scope.f.viewList()[1]);
-       // console.log('toggleAll tempList ' + tempList.length + ' $scope.checkedAll:' + $scope.checkedAll)
+        // console.log('toggleAll tempList ' + tempList.length + ' $scope.checkedAll:' + $scope.checkedAll)
         if ($scope.checkedAll) {
             angular.forEach(tempList, function (val, i) {
                 var itemIdx = $scope.checkedItems.indexOf(val);
                 if (itemIdx == -1) {
                     $scope.checkedItems.push(val);
                 }
-               // console.log('  $scope.checkedItems.push(val); ' + $scope.checkedItems.length)
+                // console.log('  $scope.checkedItems.push(val); ' + $scope.checkedItems.length)
             })
         } else {
             angular.forEach(tempList, function (val, idx) {
@@ -76,7 +89,7 @@ app.controller('mailContentCtrl', function ($scope, $http, $filter, $location, $
 
         } //console.log('checkedItems '+ checkedItems.length      )
         ;
-       // console.log('toggleAll checkedItems ' + $scope.checkedItems.length)
+        // console.log('toggleAll checkedItems ' + $scope.checkedItems.length)
         /*angular.forEach(checkedItems,function(val,key){
          $scope.list[val].dd
          });*/

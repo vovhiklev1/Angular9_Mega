@@ -25,38 +25,44 @@
                 </li>
             </ul>
 
-            <div class="b-mail__button-container"><a href="#" class="b-mail__button">Compose</a></div>
+            <div class="b-mail__button-container"><a href="#/view1/Compose" class="b-mail__button">Compose</a></div>
 
 
             <ul class="b-mail__menu">
                 <li class="b-mail__item">
                     <div class="b-item__container">
-                        <div class="b-item__title-container"><a class="b-title__text" href="#">Inbox</a></div>
-                        <div class="b-item__count-container"><a class="b-count__text" href="#">23</a></div>
+                        <div class="b-item__title-container"><a class="b-title__text" href="#/view1/inbox-all">All</a></div>
+                        <div class="b-item__count-container"><div class="b-count__text b-message-icon__all" >{{allNavIcon}}</div></div>
                     </div>
                 </li>
                 <li class="b-mail__item">
                     <div class="b-item__container">
-                        <div class="b-item__title-container"><a class="b-title__text" href="#">Important</a></div>
-                        <div class="b-item__count-container"><a class="b-count__text" href="#">24</a></div>
+                        <div class="b-item__title-container"><a class="b-title__text" href="#/view1/inbox-unread">Inbox</a></div>
+                        <div class="b-item__count-container"><div class="b-count__text b-message-icon__unread" >{{unreadNavIcon}}</div></div>
                     </div>
                 </li>
                 <li class="b-mail__item">
                     <div class="b-item__container">
-                        <div class="b-item__title-container"><a class="b-title__text" href="#">Sent</a></div>
-                        <div class="b-item__count-container"><a class="b-count__text" href="#">25</a></div>
+                        <div class="b-item__title-container"><a class="b-title__text" href="#/view1/inbox-important">Important</a></div>
+                        <div class="b-item__count-container"><div class="b-count__text b-message-icon__important" >{{importantNavIcon}}</div></div>
                     </div>
                 </li>
                 <li class="b-mail__item">
                     <div class="b-item__container">
-                        <div class="b-item__title-container"><a class="b-title__text" href="#">Drafts</a></div>
-                        <div class="b-item__count-container"><a class="b-count__text" href="#">26</a></div>
+                        <div class="b-item__title-container"><a class="b-title__text" href="">Sent</a></div>
+                        <!--<div class="b-item__count-container"><a class="b-count__text" href="#"></a></div>-->
                     </div>
                 </li>
                 <li class="b-mail__item">
                     <div class="b-item__container">
-                        <div class="b-item__title-container"><a class="b-title__text" href="#">Trash</a></div>
-                        <div class="b-item__count-container"><a class="b-count__text" href="#">27</a></div>
+                        <div class="b-item__title-container"><a class="b-title__text" href="">Drafts</a></div>
+                        <!--<div class="b-item__count-container"><a class="b-count__text" href="#">26</a></div>-->
+                    </div>
+                </li>
+                <li class="b-mail__item">
+                    <div class="b-item__container">
+                        <div class="b-item__title-container"><a class="b-title__text" href="#view1/inbox-trach">Trash</a></div>
+                        <div class="b-item__count-container"><div class="b-count__text b-message-icon__trach" >{{trachNavIcon}}</div></div>
                     </div>
                 </li>
             </ul>

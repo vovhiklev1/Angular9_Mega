@@ -34,7 +34,7 @@
                     <div class="b-header__notify" notify-directive>
                         <div class="b-notify__item">
 
-                            <div class="b-notify__messages" notify-messages-directive>
+                            <div class="b-notify__messages" notify-messages-directive >
                                 <i class="fa fa-envelope-o"></i>
 
                                 <div class="b-notify__count b-notify__count--messages">
@@ -42,9 +42,9 @@
                                     </span>
                                 </div>
 
-                                <div class="b-notify__popup-list" ng-if="dropList">
+                                <div class="b-notify__popup-list" notify-pop-up-list-directive  ng-if="dropList">
 
-                                    <ul class="b-popup">
+                                    <!--<ul1 class="b-popup">
                                         <div class="b-popup_carrot"></div>
                                         <li class="b-popup__item b-popup__header">
                                             <div class="b-popup__header">
@@ -63,9 +63,10 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                    </ul>
+                                    </ul>-->
 
                                 </div>
+
                             </div>
                         </div>
                         <div class="b-notify__item">
@@ -73,9 +74,13 @@
                                 <i class="fa fa-bell-o"></i>
 
                                 <div class="b-notify__count b-notify__count--rings">
-                                        <span class="b-notify__count--text">{{notifications}}
+                                        <span class="b-notify__count--text">{{notificationsCount}}
                                         </span>
                                 </div>
+
+                                <div class="b-notify__popup-list" notify-pop-up-list-directive  ng-if="dropList">
+                                </div>
+
                             </div>
                         </div>
                         <div class="b-notify__item">
@@ -83,7 +88,7 @@
                                 <i class="fa fa-briefcase "></i>
 
                                 <div class="b-notify__count b-notify__count--tasks">
-                                        <span class="b-notify__count--text">{{activity}}
+                                        <span class="b-notify__count--text">{{activityCount}}
                                         </span>
                                 </div>
                             </div>

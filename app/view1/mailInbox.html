@@ -99,7 +99,10 @@
                     <div class="b-mail-list__container">
                         <ul class="b-mail-list b-list-style clearfix"
 
-                            ng-repeat="item in list|  mailImportantFilter:  important:flag"> <!--orderBy:'-time' |-->
+                            ng-repeat="item in list  | mailImportantFilter: important: flag | orderBy:'-time' ">
+                            <!--| mailImportantFilter: important: flag | orderBy:'-time'-->
+                            <!--mailImportantFilter:important:flag:spam:unread:trach:readed-->
+                            <!--mailImportantFilter:  important:flag" orderBy:'-time' |-->
                             <li class=" b-list__item-container">
                                 <input class="b-list__item b-item--cheched"
                                        name="item__checked"
@@ -132,7 +135,7 @@
                                 <div class="b-item--wrap ">
 
                                     <message-type-directive></message-type-directive>
-                                    <span class="b-list__item b-item__text">{{f.getShortMessage(item.message)}}</span>
+                                    <span class="b-list__item b-item__text">{{f.getShortMessage(item.message,'mail')}}</span>
                                 </div>
                             </li>
 
